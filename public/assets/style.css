@@ -16,7 +16,8 @@ body {
     background-size: contain; }
   .cell.question-image {
     background-image: url(/assets/question.png);
-    background-size: contain; }
+    background-size: contain;
+    cursor: pointer; }
   .cell.arrow-right {
     background-image: url(/assets/arrow-right.png);
     background-size: 69% !important;
@@ -73,3 +74,14 @@ body {
 
 .content-left {
   width: 50%; }
+
+.font-1 {
+  text-align: center;
+  margin: 8px 0 0 0;
+  font-size: 2em; }
+
+button {
+  font-size: 0.7em;
+  background: #eacea2;
+  border: 1px solid;
+  margin-bottom: 3px; }

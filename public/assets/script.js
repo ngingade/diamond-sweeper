@@ -52,41 +52,46 @@
     }
 
     function _checkDiamond(e) {
-        if(arrowClassAdded) {
-            prevSelected[prevSelected.length - 1].target.classList.remove(arrowClassAdded);
-            arrowClassAdded = '';
+        if (numberOfDimondsFound === 8) {
+            alert('Found all Diamonds your score is: ' + numberOfCellsLeft);
         }
-        if (e.currentTarget.classList.contains('question-image')) {
-            if (!e.currentTarget.classList.contains('diamond-image')) {
-                numberOfCellsLeft = numberOfCellsLeft - 1;
-                scoreDiv.innerHTML = numberOfCellsLeft;
+        else {
+            if (arrowClassAdded) {
+                prevSelected[prevSelected.length - 1].target.classList.remove(arrowClassAdded);
+                arrowClassAdded = '';
             }
-            else {
-                for (var i = 0; i < allDiamondElets.length; i++) {
-                    if (allDiamondElets[i] === e.currentTarget && !allDiamondElets[i].isFound) {
-                        allDiamondElets[i].isFound = true;
-                        foundDiamond[foundDiamond.length] = allDiamondElets[i];
-                        numberOfDimondsFound = numberOfDimondsFound + 1;
-                        diamondScoreEle.innerHTML = numberOfDimondsFound;
+            if (e.currentTarget.classList.contains('question-image')) {
+                if (!e.currentTarget.classList.contains('diamond-image')) {
+                    numberOfCellsLeft = numberOfCellsLeft - 1;
+                    scoreDiv.innerHTML = numberOfCellsLeft;
+                }
+                else {
+                    for (var i = 0; i < allDiamondElets.length; i++) {
+                        if (allDiamondElets[i] === e.currentTarget && !allDiamondElets[i].isFound) {
+                            allDiamondElets[i].isFound = true;
+                            foundDiamond[foundDiamond.length] = allDiamondElets[i];
+                            numberOfDimondsFound = numberOfDimondsFound + 1;
+                            diamondScoreEle.innerHTML = numberOfDimondsFound;
+                        }
                     }
                 }
-            }
-            for (var i = 0; i < allDiamondElets.length; i++) {
-                if (allDiamondElets[i].isFound) {
-                    allDiamondEletsTemp.splice(i, 1);
+                for (var i = 0; i < allDiamondElets.length; i++) {
+                    if (allDiamondElets[i].isFound) {
+                        allDiamondEletsTemp.splice(i, 1);
+                    }
                 }
-            }
-            prevSelected.push(e);
-            e.currentTarget.classList.remove('question-image');
+                prevSelected.push(e);
+                e.currentTarget.classList.remove('question-image');
 
-            console.log('numberOfCellsLeft ' + numberOfCellsLeft);
-            console.log(e.currentTarget.getBoundingClientRect());
+                console.log('numberOfCellsLeft ' + numberOfCellsLeft);
+                console.log(e.currentTarget.getBoundingClientRect());
+            }
         }
     }
 
     function _revertChanges() {
         if (prevSelected.length > 0) {
-            if(arrowClassAdded) {
+            if (arrowClassAdded) {
                 prevSelected[prevSelected.length - 1].target.classList.remove(arrowClassAdded);
                 arrowClassAdded = '';
             }
@@ -109,7 +114,7 @@
     }
 
     function _getNearestDiamondHint(e) {
-        if(prevSelected.length >0) {
+        if (prevSelected.length > 0) {
             var allDiamondEletsPos = [];
             for (var i = 0; i < allDiamondEletsTemp.length; i++) {
                 allDiamondEletsPos[i] = allDiamondEletsTemp[i].getBoundingClientRect();
@@ -124,13 +129,13 @@
             var nearestEleIndex = nearestEleList.findIndex(function (o) { return o.distance === nearestVal });
             var nearestEle = nearestEleList[nearestEleIndex];
             console.log(nearestEle);
-        
+
             showArrowDirection(nearestEle);
         }
     }
 
     function showArrowDirection(cell) {
-        if(cell) {
+        if (cell) {
             var position = cell.ele.getBoundingClientRect();
             var prevSelectedEle = prevSelected[prevSelected.length - 1];
             var selectedX = prevSelected[prevSelected.length - 1].target.getBoundingClientRect().x;
@@ -139,49 +144,49 @@
             var arrowY = position.y - selectedY;
             console.log('Position x' + arrowX);
             console.log('Position y' + arrowY);
-            if( arrowY === 0 && arrowX > 0) {
+            if (arrowY === 0 && arrowX > 0) {
                 prevSelectedEle.target.classList.add('arrow-right');
                 arrowClassAdded = 'arrow-right';
                 console.log('arrow-right');
             }
-            else if( arrowX === 0 && arrowY > 0) {
+            else if (arrowX === 0 && arrowY > 0) {
                 prevSelectedEle.target.classList.add('arrow-bottom');
                 arrowClassAdded = 'arrow-bottom';
                 console.log('arrow-bottom');
             }
-            else if( arrowX > 0 && arrowY > 0) {
+            else if (arrowX > 0 && arrowY > 0) {
                 prevSelectedEle.target.classList.add('arrow-bottom-right');
                 arrowClassAdded = 'arrow-bottom-right';
                 console.log('arrow-bottom-right');
             }
-            else if( arrowX < 0 && arrowY > 0) {
+            else if (arrowX < 0 && arrowY > 0) {
                 prevSelectedEle.target.classList.add('arrow-bottom-left');
                 arrowClassAdded = 'arrow-bottom-left';
                 console.log('arrow-bottom-left');
             }
-            else if( arrowX === 0 && arrowY < 0) {
+            else if (arrowX === 0 && arrowY < 0) {
                 prevSelectedEle.target.classList.add('arrow-top');
                 arrowClassAdded = 'arrow-top';
                 console.log('arrow-top');
             }
-            else if( arrowX > 0 && arrowY < 0) {
+            else if (arrowX > 0 && arrowY < 0) {
                 prevSelectedEle.target.classList.add('arrow-top-right');
                 arrowClassAdded = 'arrow-top-right';
                 console.log('arrow-top-right');
             }
-            else if( arrowX < 0 && arrowY < 0) {
+            else if (arrowX < 0 && arrowY < 0) {
                 prevSelectedEle.target.classList.add('arrow-top-left');
                 arrowClassAdded = 'arrow-top-left';
                 console.log('arrow-top-left');
             }
-            else if( arrowX < 0 && arrowY === 0) {
+            else if (arrowX < 0 && arrowY === 0) {
                 prevSelectedEle.target.classList.add('arrow-left');
                 arrowClassAdded = 'arrow-left';
                 console.log('arrow-left');
             }
         }
         else {
-            alert('Found all Diamonds');
+            alert('Found all Diamonds your score is: ' + numberOfCellsLeft);
         }
     }
 })()
