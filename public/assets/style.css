@@ -17,9 +17,46 @@ body {
   .cell.question-image {
     background-image: url(/assets/question.png);
     background-size: contain; }
-  .cell.arrow-image {
-    background-image: url(/assets/arrow.png);
-    background-size: contain; }
+  .cell.arrow-right {
+    background-image: url(/assets/arrow-right.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-top {
+    background-image: url(/assets/arrow-top.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-left {
+    background-image: url(/assets/arrow-left.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-bottom {
+    background-image: url(/assets/arrow-bottom.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-bottom-right {
+    background-image: url(/assets/arrow-bottom-right.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-bottom-left {
+    background-image: url(/assets/arrow-bottom-left.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-top-right {
+    background-image: url(/assets/arrow-top-right.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .cell.arrow-top-left {
+    background-image: url(/assets/arrow-top-left.png);
+    background-size: 69% !important;
+    background-repeat: no-repeat;
+    background-position: center; }
 
 .box > * {
   flex: 1 1 4.5vw;

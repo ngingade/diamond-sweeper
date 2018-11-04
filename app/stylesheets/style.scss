@@ -24,11 +24,64 @@ body {
       background-size: contain;
     }
     
-    &.arrow-image {
-      background-image: $arrow-image-url; 
-      background-size: contain;
+    &.arrow-right {
+      background-image: $arrow-image-right;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-top {
+      background-image: $arrow-image-top;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-left {
+      background-image: $arrow-image-left;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-bottom {
+      background-image: $arrow-image-bottom;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-bottom-right {
+      background-image: $arrow-image-bottom-right;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-bottom-left {
+      background-image: $arrow-image-bottom-left;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-top-right {
+      background-image: $arrow-image-top-right;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    &.arrow-top-left {
+      background-image: $arrow-image-top-left;
+      background-size: 69% !important;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
+
+
 
 .box > * {
   flex: 1 1 4.5vw;
